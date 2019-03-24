@@ -3,7 +3,7 @@ import PokeCard from './PokeCard';
 import Modal from './Modal';
 import ConfirmSave from './ConfirmSave';
 
-const PokeList = ({pokemon, handleAddPokemon, textFilter, currentPokemonTeam }) => { 
+const PokeList = ({ pokemon, handleAddPokemon, textFilter, currentPokemonTeam }) => { 
   const [showPokeModal, setShowPokeModal] = useState(false);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [error, setError] = useState(null);
@@ -79,8 +79,7 @@ const PokeList = ({pokemon, handleAddPokemon, textFilter, currentPokemonTeam }) 
         />
       }
     </React.Fragment>
-  )
-  
+  );
 };
 
 export default PokeList;

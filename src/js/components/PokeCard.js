@@ -1,73 +1,60 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import pokeapi from './../apis/pokeapi';
 import regeneratorRuntime from 'regenerator-runtime';
 
-class PokeCard extends React.Component {
-  _isMounted = false;
-  
-  constructor() {
-    super();
-    this.state = {
-      currentPokemon : null
+const PokeCard = ({ handlePokeCardClick, pokemon }) => {
+  const [currentPokemon, setCurrentPokemon] = useState(null);
+
+  const getPokemon = async () => {
+    try {   
+      const response = await pokeapi.get(`/pokemon/${pokemon.name}`);
+      await setCurrentPokemon(response.data);
+    } catch (error) { 
+      throw error;
     }
-  }
-  
-  async componentDidMount() {
-    this._isMounted = true;
-    try {
-      if(this._isMounted) {
-        const response = await pokeapi.get(`/pokemon/${this.props.pokemon.name}`);
-        await this.setState({currentPokemon : response.data});
-      }
-    } catch (error){
-      throw error
-    } 
-  }
+  };
 
-  onPokeCardClick = () => {
-    this.props.handlePokeCardClick(this.state.currentPokemon);
-  }
+  useEffect(() => {
+    getPokemon();
+  }, []);
 
-  onPokeCardKeyPress = (e) => {
-    if(e.key ==='Enter') {
-      this.props.handlePokeCardClick(this.state.currentPokemon);
+  const onPokeCardClick = () => {
+    handlePokeCardClick(currentPokemon);
+  };
+
+  const onPokeCardKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handlePokeCardClick(currentPokemon);
     }
-  }
+  };
 
-  componentWillUnmount(){
-    this._isMounted = false;
-  }
+  if (!currentPokemon) return <div />;
   
-  render() {
-    if (!this.state.currentPokemon) return <div />
-    
-    if (this.state.currentPokemon.sprites.front_default){
-      return (
-        <li 
-          onClick={this.onPokeCardClick} 
-          tabIndex='0' 
-          className='poke-card__item'   
-          onKeyPress={this.onPokeCardKeyPress}
-          data-test = 'poke-card-item'
-        >
-        
-          <div className='poke-card__img-box'>
-            <img 
-              src={this.state.currentPokemon.sprites.front_default} 
-              alt={`A sprite image of ${this.state.currentPokemon.name}`}
-              data-test='poke-card-img'
-            />
-          </div>
-          <p className='poke-card__name' data-test='poke-card-name'>
-            {this.state.currentPokemon.name}
-          </p>
-        </li>       
-      ) 
-    } else {
-      return <React.Fragment />
-    } 
-  }
+  if (currentPokemon.sprites.front_default) {
+    return (
+      <li 
+        onClick={onPokeCardClick} 
+        tabIndex='0' 
+        className='poke-card__item'   
+        onKeyPress={onPokeCardKeyPress}
+        data-test = 'poke-card-item'
+      >
+        <div className='poke-card__img-box'>
+          <img 
+            src={currentPokemon.sprites.front_default} 
+            alt={`A sprite image of ${currentPokemon.name}`}
+            data-test='poke-card-img'
+          />
+        </div>
+        <p className='poke-card__name' data-test='poke-card-name'>
+          {currentPokemon.name}
+        </p>
+      </li>       
+    ); 
+  } else {
+    return <React.Fragment />;
+  } 
 };
+
 
 export default PokeCard;
