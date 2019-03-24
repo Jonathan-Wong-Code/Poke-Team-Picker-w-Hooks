@@ -1,34 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import regeneratorRuntime from 'regenerator-runtime';
 
-export class SearchBar extends React.Component {
-  constructor() {
-    super();
+const SearchBar = ({ handlePokeSearch }) => {
+  const [type, setType] = useState('all');
+  const [textFilter, setTextFilter] = useState('');
+  
+  const handleInputChange = (e) => {
+    setTextFilter(e.target.value);
+  };
 
-    this.state = {
-      type : 'all',
-      textFilter : '',
-    }
-  }
-
-  handleInputChange = (e) => {
-    this.setState({ textFilter : e.target.value });
-  }
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handlePokeSearch(this.state.textFilter, this.state.type);
-    this.setState({ textFilter : ''});
-  }
+    handlePokeSearch(textFilter, type);
+    setTextFilter('');
+  };
 
-  handleTypeChange = async (e) => {
-    this.setState({ type: e.target.value });
-  }
+  const handleTypeChange = (e) => {
+    setType(e.target.value);
+  };
  
-  render() {
-    return (
+  return (
     <div className='search-bar' data-test='search-bar-component'>
-      <form action='' onSubmit={this.handleSubmit} className='search-bar__form' data-test='search-bar-form'>
+      <form action='' onSubmit={handleSubmit} className='search-bar__form' data-test='search-bar-form'>
         <span className='visuallyhidden' htmlFor='search-name'>Search by name</span>
         <input 
           type='text' 
@@ -36,15 +29,16 @@ export class SearchBar extends React.Component {
           id='search-name'
           className='search-bar__name search-bar__item'
           data-test='search-bar-input'
-          value={this.state.textFilter}
-          onChange={this.handleInputChange}
+          value={textFilter}
+          onChange={handleInputChange}
         />
 
         <span className='visuallyhidden' htmlFor='search-type'>Search pokemon by type</span>
         <select 
-          name='' id='search-type' 
-          onChange={this.handleTypeChange} 
-          value={this.state.type}  
+          name='' 
+          id='search-type' 
+          onChange={handleTypeChange} 
+          value={type}  
           className='search-bar__type search-bar__item'
           data-test='search-bar-select'
         >
@@ -78,8 +72,8 @@ export class SearchBar extends React.Component {
         </button>
       </form>
     </div>
-    );
-  }
+  );
 };
+
 
 export default SearchBar;
