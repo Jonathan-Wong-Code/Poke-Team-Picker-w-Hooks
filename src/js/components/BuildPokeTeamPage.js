@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect, useReducer, useContext} from 'react';
 import uuid from 'uuid';
 import moment from 'moment';
 import pokeapi from '../apis/pokeapi';
@@ -9,142 +9,293 @@ import SaveTeamListBtn from './SavePokeTeamBtn'
 import SavePokeTeamModal from './SavePokeTeamModal';
 import regeneratorRuntime from 'regenerator-runtime';
 
-class BuildPokeTeamPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      textFilter : '',
-      pokemon : [],
-      currentPokemonTeam : this.props.pokeTeam ? this.props.pokeTeam.pokemon : [],
-      pokemonTeamToSave : {},
-      showSaveModal : false,
-      searchError : ''
-    };
-  }
 
-  async componentDidMount() {
+
+// class BuildPokeTeamPage extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       textFilter : '',
+//       pokemon : [],
+//       currentPokemonTeam : this.props.pokeTeam ? this.props.pokeTeam.pokemon : [],
+//       pokemonTeamToSave : {},
+//       showSaveModal : false,
+//       searchError : ''
+//     };
+//   }
+
+//   async componentDidMount() {
+//     const response = await pokeapi.get('/pokemon');
+//     this.setState({ pokemon : response.data.results });
+//   }
+
+//   toggleModal = () => {
+//     this.setState((prevState)=> ({
+//       showSaveModal : !prevState.showSaveModal
+//     }));
+//   }
+ 
+//   handleSaveTeam = (name, description) => {
+//     const newTeamObj = {
+//       pokemon : this.state.currentPokemonTeam,
+//       name,
+//       description,
+//       createdAt : this.props.pokeTeam? moment(this.props.pokeTeam.createdAt).valueOf() : moment().valueOf(),
+//       id : this.props.pokeTeam ? this.props.pokeTeam.id : null
+//     }
+    
+//     if(this.props.type ==='create') {
+//       this.props.handleAddTeam(newTeamObj);
+//     } else {
+//       this.props.handleEditTeam(newTeamObj);
+//     }
+//   }
+
+//   handleAddPokemon = (pokemon) => {
+//     const uniqueId = uuid();
+//     this.setState((prevState) => ({
+//       currentPokemonTeam : [...prevState.currentPokemonTeam, {
+//         uniqueId,
+//         ...pokemon
+//       }]
+//     }));
+//   }
+
+//   handleRemovePokemon = (id) => {
+//     this.setState((prevState) => {
+//       const newState = prevState.currentPokemonTeam
+//         .filter(pokemon => pokemon.uniqueId !== id)
+//       return {
+//         currentPokemonTeam : newState
+//       }
+//     })
+//   }
+ 
+//   handlePokeSearch = async (textFilter, type) => {
+//     if(type !=='all') {
+//       try {
+//         const response = await pokeapi.get(`/type/${type}`);
+//         const formattedPokeData = response.data.pokemon.map(pokemon => {
+//           return pokemon.pokemon;
+//         });
+
+//         this.setState({ pokemon : formattedPokeData });
+//       } catch (error) {
+//         throw error;
+//       }   
+//     } else {
+//       try {
+//         const response = await pokeapi.get('/pokemon');
+//         this.setState({ pokemon : response.data.results });
+//       } catch (error) {
+//         throw error
+//       } 
+//     }
+    
+//     this.setState({ textFilter })
+//   }
+  
+//   renderHeading = () => (
+//     this.props.pokeTeam ? 
+//     <h2 className='build-page__heading'>
+//       Editing Team
+//     </h2> 
+//     : null
+//   )
+
+//   render() {
+//     if(!this.state.pokemon) return <div />
+//     return (
+//       <section className='build-page'>
+//         <section className='build-page__poke-team'>
+//           {this.renderHeading()}
+//           <PokeTeamList 
+//             pokeTeam ={this.state.currentPokemonTeam}
+//             handleRemovePokemon = {this.handleRemovePokemon}
+//           />
+
+//           <SaveTeamListBtn 
+//             pokeTeam ={this.state.currentPokemonTeam}
+//             toggleModal={this.toggleModal}
+//             type={this.props.type}
+//           />  
+//         </section>
+//         {
+//           this.state.showSaveModal && 
+//             <SavePokeTeamModal 
+//               toggleModal={this.toggleModal}
+//               handleSaveTeam={this.handleSaveTeam}
+//               history={this.props.history}
+//               pokeTeam = {this.props.pokeTeam ? this.props.pokeTeam : null}
+//               type={this.props.type}
+//             />
+//         }
+//         <section className='build-page__poke-search'>
+//           <div className='wrapper poke-search__wrapper'>
+//             <SearchBar 
+//               handlePokeSearch = {this.handlePokeSearch}
+//             />
+            
+//             <PokeList 
+//               pokemon ={this.state.pokemon} 
+//               textFilter ={this.state.textFilter}
+//               handleAddPokemon = {this.handleAddPokemon}
+//               currentPokemonTeam = {this.state.currentPokemonTeam}
+//             />
+//           </div> 
+//         </section>
+//       </section>
+//     );
+//   }
+// }
+
+const currentPokeTeamReducer = (state, action) => {
+  switch(action.type) {
+
+    case "ADD_POKEMON":
+    return [
+      ...state,
+      action.pokemon
+    ];
+
+    case 'REMOVE_POKEMON':
+    return state.filter(pokemon => pokemon.uniqueId !== action.id);
+
+    default:
+    return state;
+  }
+}
+
+const BuildPokeTeamPage = (props) => {
+
+  const [textFilter, setTextFilter] = useState('');
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [searchedPokemon, setSearchedPokemon] = useState([]);
+  const [currentPokemonTeam, teamDispatch] = useReducer(currentPokeTeamReducer, props.pokeTeam ? props.pokeTeam.pokemon : [])
+
+  const getInitialPokemon = async () => {
     const response = await pokeapi.get('/pokemon');
-    this.setState({ pokemon : response.data.results });
+    await setSearchedPokemon(response.data.results);
   }
 
-  toggleModal = () => {
-    this.setState((prevState)=> ({
-      showSaveModal : !prevState.showSaveModal
-    }));
+  useEffect(() => {
+    getInitialPokemon();
+  },[]);
+
+  const toggleModal = () => {
+    setShowSaveModal(true);
   }
  
-  handleSaveTeam = (name, description) => {
+  const handleSaveTeam = (name, description) => {
     const newTeamObj = {
-      pokemon : this.state.currentPokemonTeam,
+      pokemon : currentPokemonTeam,
       name,
       description,
-      createdAt : this.props.pokeTeam? moment(this.props.pokeTeam.createdAt).valueOf() : moment().valueOf(),
-      id : this.props.pokeTeam ? this.props.pokeTeam.id : null
+      createdAt : props.pokeTeam? moment(props.pokeTeam.createdAt).valueOf() : moment().valueOf(),
+      id : props.pokeTeam ?props.pokeTeam.id : null
     }
     
-    if(this.props.type ==='create') {
-      this.props.handleAddTeam(newTeamObj);
+    if(props.type ==='create') {
+      props.handleAddTeam(newTeamObj);
     } else {
-      this.props.handleEditTeam(newTeamObj);
+      props.handleEditTeam(newTeamObj);
     }
   }
 
-  handleAddPokemon = (pokemon) => {
+  const handleAddPokemon = (pokemon) => {
     const uniqueId = uuid();
-    this.setState((prevState) => ({
-      currentPokemonTeam : [...prevState.currentPokemonTeam, {
+    teamDispatch({
+      type: "ADD_POKEMON",
+      pokemon : {
         uniqueId,
         ...pokemon
-      }]
-    }));
-  }
-
-  handleRemovePokemon = (id) => {
-    this.setState((prevState) => {
-      const newState = prevState.currentPokemonTeam
-        .filter(pokemon => pokemon.uniqueId !== id)
-      return {
-        currentPokemonTeam : newState
       }
     })
   }
+
+  const handleRemovePokemon = (id) => {
+    teamDispatch({
+      type : 'REMOVE_POKEMON',
+      id
+    })
+  }
  
-  handlePokeSearch = async (textFilter, type) => {
+  const handlePokeSearch = async (textFilter, type) => {
     if(type !=='all') {
       try {
         const response = await pokeapi.get(`/type/${type}`);
         const formattedPokeData = response.data.pokemon.map(pokemon => {
           return pokemon.pokemon;
         });
-
-        this.setState({ pokemon : formattedPokeData });
+        setSearchedPokemon(formattedPokeData)
       } catch (error) {
         throw error;
       }   
     } else {
       try {
         const response = await pokeapi.get('/pokemon');
-        this.setState({ pokemon : response.data.results });
+        setSearchedPokemon(response.data.results);
       } catch (error) {
         throw error
       } 
     }
     
-    this.setState({ textFilter })
+    setTextFilter(textFilter);
   }
   
-  renderHeading = () => (
-    this.props.pokeTeam ? 
+  const renderHeading = () => (
+    props.pokeTeam ? 
     <h2 className='build-page__heading'>
       Editing Team
     </h2> 
     : null
   )
 
-  render() {
-    if(!this.state.pokemon) return <div />
+    if(searchedPokemon.length === 0) {
+      <div>Loading</div>
+    } 
+
     return (
       <section className='build-page'>
         <section className='build-page__poke-team'>
-          {this.renderHeading()}
+          {renderHeading()}
           <PokeTeamList 
-            pokeTeam ={this.state.currentPokemonTeam}
-            handleRemovePokemon = {this.handleRemovePokemon}
+            pokeTeam ={currentPokemonTeam}
+            handleRemovePokemon = {handleRemovePokemon}
           />
 
           <SaveTeamListBtn 
-            pokeTeam ={this.state.currentPokemonTeam}
-            toggleModal={this.toggleModal}
-            type={this.props.type}
+            pokeTeam ={currentPokemonTeam}
+            toggleModal={toggleModal}
+            type={props.type}
           />  
         </section>
         {
-          this.state.showSaveModal && 
+          showSaveModal && 
             <SavePokeTeamModal 
-              toggleModal={this.toggleModal}
-              handleSaveTeam={this.handleSaveTeam}
-              history={this.props.history}
-              pokeTeam = {this.props.pokeTeam ? this.props.pokeTeam : null}
-              type={this.props.type}
+              toggleModal={toggleModal}
+              handleSaveTeam={handleSaveTeam}
+              history={props.history}
+              pokeTeam = {props.pokeTeam ? props.pokeTeam : null}
+              type={props.type}
             />
         }
         <section className='build-page__poke-search'>
           <div className='wrapper poke-search__wrapper'>
             <SearchBar 
-              handlePokeSearch = {this.handlePokeSearch}
+              handlePokeSearch = {handlePokeSearch}
             />
             
             <PokeList 
-              pokemon ={this.state.pokemon} 
-              textFilter ={this.state.textFilter}
-              handleAddPokemon = {this.handleAddPokemon}
-              currentPokemonTeam = {this.state.currentPokemonTeam}
+              pokemon = {searchedPokemon} 
+              textFilter ={textFilter}
+              handleAddPokemon = {handleAddPokemon}
+              currentPokemonTeam = {currentPokemonTeam}
             />
           </div> 
         </section>
       </section>
     );
   }
-}
 
 export default BuildPokeTeamPage;
