@@ -1,105 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PokeCard from './PokeCard';
 import Modal from './Modal';
 import ConfirmSave from './ConfirmSave';
 
-class PokeList extends React.Component { 
-  constructor() {
-    super();
+const PokeList = ({pokemon, handleAddPokemon, textFilter, currentPokemonTeam }) => { 
+  const [showPokeModal, setShowPokeModal] = useState(false);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [error, setError] = useState(null);
+  const [currentPokemon, setCurrentPokemon] = useState(null);
 
-    this.state = {
-      showPokeModal : false,
-      showSaveModal: false,
-      currentPokemon : null,
-      error : ''
-    };
-  } 
+  const handleTogglePokeModal = () => {
+    setShowPokeModal(!showPokeModal);
+  };
 
-  setPokemon = (currentPokemon) => {
-    this.setState({ currentPokemon });
-  }
+  const handleToggleSaveModal = () => {
+    setShowSaveModal(!showSaveModal);
+  };
 
-  renderPokemon = () => {
-    const filteredPokemon = this.props.pokemon.filter(pokemon => {
-      return pokemon.name.includes(this.props.textFilter.toLowerCase());
-    })
+  const handleAddTeamPokemon = () => {
+    if (currentPokemonTeam.length < 6) {
+      handleAddPokemon(currentPokemon);
+      handleToggleSaveModal();
+      handleTogglePokeModal();
+    } else {
+      setError('Team full! Remove a member');
+    }    
+  };
+
+  const handlePokeCardClick = (currentPokemon) => {
+    setCurrentPokemon(currentPokemon);
+    handleTogglePokeModal();
+  };
+
+  const renderPokemon = () => {
+    const filteredPokemon = pokemon.filter(pokemon => {
+      return pokemon.name.includes(textFilter.toLowerCase());
+    });
     
-  if(filteredPokemon.length === 0){
-    return (
+    if (filteredPokemon.length === 0) {
+      return (
         <h2 className='poke-list__no-results'>No Results</h2>
-      )
+      );
     }
-  return (
+
+    return (
       filteredPokemon.map(pokemon => (
         <PokeCard 
           key={pokemon.name} 
           pokemon={pokemon} 
-          handlePokeCardClick={this.handlePokeCardClick} 
+          handlePokeCardClick={handlePokeCardClick} 
         />
       ))    
-    ) 
-  }
+    );
+  };
 
-  handlePokeCardClick = (currentPokemon) => {
-    this.setState({ currentPokemon });
-    this.handleTogglePokeModal();
-  }
-
-  handleTogglePokeModal =() => {
-    this.setState(prevState => {
-      return {
-        showPokeModal : !prevState.showPokeModal
-      }
-    })
-  }
-
-  handleToggleSaveModal = () => {
-    this.setState(prevState => {
-      return {
-        showSaveModal : !prevState.showSaveModal
-      }
-    })
-  }
-
-  handleAddPokemon = () => {
-    if(this.props.currentPokemonTeam.length < 6){
-      this.props.handleAddPokemon(this.state.currentPokemon);
-      this.handleToggleSaveModal();
-      this.handleTogglePokeModal();
-    } else {
-      this.setState({ error : 'Team full! Remove a member' });
-    }    
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <div className='poke-list'>
-            <ul className='poke-list__grid'>
-              {this.renderPokemon()}
-            </ul>
-        </div>
+  return (
+    <React.Fragment>
+      <div className='poke-list'>
+        <ul className='poke-list__grid'>
+          {renderPokemon()}
+        </ul>
+      </div>
       { 
-        this.state.showPokeModal && 
+        showPokeModal && 
         <Modal
-          pokemon={this.state.currentPokemon}
-          handleTogglePokeModal={this.handleTogglePokeModal}
-          handleAddPokemon={this.handleAddPokemon}
-          error={this.state.error}
-          handleSetFocus={this.handleSetFocus}
+          pokemon={currentPokemon}
+          handleTogglePokeModal={handleTogglePokeModal}
+          handleAddPokemon={handleAddTeamPokemon}
+          error={error}
         /> 
       }
 
       {
-        this.state.showSaveModal &&
+        showSaveModal &&
         <ConfirmSave
-          pokemon={this.state.currentPokemon}
-          handleToggleSaveModal={this.handleToggleSaveModal}
+          pokemon={currentPokemon}
+          handleToggleSaveModal={handleToggleSaveModal}
         />
       }
     </React.Fragment>
-    )
-  }
+  )
+  
 };
 
 export default PokeList;
