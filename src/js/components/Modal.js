@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import PokemonTypes from './PokemonTypes';
 
 export class Modal extends React.Component{
