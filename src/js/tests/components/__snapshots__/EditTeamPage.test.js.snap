@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The unconnected EditTeamPage component Should render a snapshot of the component 1`] = `
+<BuildPokeTeamPage
+  data-test="build-page-component"
+  handleEditTeam={[Function]}
+  type="edit"
+/>
+`;

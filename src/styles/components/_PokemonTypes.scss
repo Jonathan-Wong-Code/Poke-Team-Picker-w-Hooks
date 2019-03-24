@@ -1,0 +1,107 @@
+.pokemon-type {
+  text-align: center;
+  margin-right: .5rem;
+  padding: .1rem .8rem;
+  border-radius: 40px;
+  color: $color-white;
+}
+
+.pokemon-type:nth-child(2) {
+  margin: 0;
+}
+
+/* http://www.epidemicjohto.com/t882-type-colors-hex-colors color reference */
+.pokemon-type--normal {
+  background: $color-normal;
+}
+
+.pokemon-type--fire {
+  background: $color-fire;
+}
+
+.pokemon-type--water {
+  background: $color-water;
+}
+
+.pokemon-type--electric {
+  background: $color-electric;
+}
+
+.pokemon-type--grass {
+  background: $color-grass;
+}
+
+.pokemon-type--ice {
+  background: #96D9D6;
+}
+
+.pokemon-type--fighting {
+  background: $color-fighting;
+}
+
+.pokemon-type--poison {
+  background: $color-poison;
+}
+
+.pokemon-type--ground {
+  background: $color-ground;
+}
+
+.pokemon-type--flying {
+  background: $color-flying;
+}
+
+.pokemon-type--psychic {
+  background: $color-psychic;
+}
+
+.pokemon-type--bug {
+  background: $color-bug;
+}
+
+.pokemon-type--rock {
+  background: $color-rock;
+}
+
+.pokemon-type--ghost {
+  background: $color-ghost;
+}
+
+.pokemon-type--dragon {
+  background: $color-dragon;
+}
+
+.pokemon-type--dark {
+  background: $color-dark;
+}
+
+.pokemon-type--steel {
+  background: $color-steel;
+}
+
+.pokemon-type--fairy {
+  background: $color-fairy;
+}
+
+@media(max-width: 900px) {
+  .pokemon-type {
+    font-size: 1rem;
+    margin-right: .3rem;
+    padding: .1rem .5rem;
+  }
+}
+
+@media(max-width: 550px) {
+  .pokemon-type {
+    font-size: .9rem;
+    margin-right: .2rem;
+    padding: .2rem .5rem;
+  }
+}
+
+@media(max-width: 400px) {
+  .pokemon-type {
+    margin-right: .2rem;
+    padding: .2rem 1.5rem;
+  }
+}

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The unconnected NavBar component with non-guest account Should render a snapshot of the component 1`] = `
+<nav
+  className="navbar"
+  data-test="nav-bar-component"
+>
+  <ul
+    className="navbar__nav"
+  >
+    <li
+      className="navbar__item"
+    >
+      <NavLink
+        activeClassName="is-active"
+        aria-current="page"
+        className="navbar__link btn"
+        to="/create"
+      >
+        Create Team
+      </NavLink>
+    </li>
+    <li
+      className="navbar__item"
+    >
+      <NavLink
+        activeClassName="is-active"
+        aria-current="page"
+        className="navbar__link btn"
+        to="/SavedTeams"
+      >
+        Saved Teams
+      </NavLink>
+    </li>
+    <li
+      className="navbar__item"
+    >
+      <button
+        className="btn navbar__logout"
+        data-test="nav-bar-logout"
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </li>
+  </ul>
+</nav>
+`;

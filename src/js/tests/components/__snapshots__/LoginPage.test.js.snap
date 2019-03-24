@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the connected login page Should render a snapshot of the component 1`] = `
+<section
+  className="login"
+  data-test="login-component"
+>
+  <div
+    className="login__buttons"
+  >
+    <button
+      className="login__button btn"
+      data-test="login-button"
+      onClick={[Function]}
+    >
+      Login with Google
+    </button>
+    <button
+      className="login__button btn"
+      data-test="login-guest-button"
+      onClick={[Function]}
+    >
+      Guest
+    </button>
+  </div>
+</section>
+`;

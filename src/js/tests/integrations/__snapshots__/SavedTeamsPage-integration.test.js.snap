@@ -1,0 +1,795 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The connected Saved Teams Page with pokeTeams saved Should render a snapshot of the component 1`] = `
+<section
+  className="saved-teams-section"
+  data-test="saved-teams-component"
+>
+  <h2
+    className="saved-teams-section__heading"
+  >
+    My Saved Teams
+  </h2>
+  <SavedTeamsList
+    savedTeams={
+      Array [
+        Object {
+          "description": "This is pokeTeam1",
+          "id": "team1",
+          "name": "pokeTeam1",
+          "pokemon": Array [
+            Object {
+              "name": "pokemon1",
+              "sprites": Object {
+                "front_default": "sprite1",
+              },
+            },
+            Object {
+              "name": "pokemon2",
+              "sprites": Object {
+                "front_default": "sprite2",
+              },
+            },
+            Object {
+              "name": "pokemon3",
+              "sprites": Object {
+                "front_default": "sprite3",
+              },
+            },
+            Object {
+              "name": "pokemon4",
+              "sprites": Object {
+                "front_default": "sprite4",
+              },
+            },
+            Object {
+              "name": "pokemon5",
+              "sprites": Object {
+                "front_default": "sprite5",
+              },
+            },
+            Object {
+              "name": "pokemon6",
+              "sprites": Object {
+                "front_default": "sprite6",
+              },
+            },
+          ],
+        },
+        Object {
+          "description": "This is pokeTeam2",
+          "id": "team2",
+          "name": "pokeTeam2",
+          "pokemon": Array [
+            Object {
+              "name": "pokemon1",
+              "sprites": Object {
+                "front_default": "sprite1",
+              },
+            },
+            Object {
+              "name": "pokemon2",
+              "sprites": Object {
+                "front_default": "sprite2",
+              },
+            },
+            Object {
+              "name": "pokemon3",
+              "sprites": Object {
+                "front_default": "sprite3",
+              },
+            },
+            Object {
+              "name": "pokemon4",
+              "sprites": Object {
+                "front_default": "sprite4",
+              },
+            },
+            Object {
+              "name": "pokemon5",
+              "sprites": Object {
+                "front_default": "sprite5",
+              },
+            },
+            Object {
+              "name": "pokemon6",
+              "sprites": Object {
+                "front_default": "sprite6",
+              },
+            },
+          ],
+        },
+        Object {
+          "description": "This is pokeTeam3",
+          "id": "team3",
+          "name": "pokeTeam3",
+          "pokemon": Array [
+            Object {
+              "name": "pokemon1",
+              "sprites": Object {
+                "front_default": "sprite1",
+              },
+            },
+            Object {
+              "name": "pokemon2",
+              "sprites": Object {
+                "front_default": "sprite2",
+              },
+            },
+            Object {
+              "name": "pokemon3",
+              "sprites": Object {
+                "front_default": "sprite3",
+              },
+            },
+            Object {
+              "name": "pokemon4",
+              "sprites": Object {
+                "front_default": "sprite4",
+              },
+            },
+            Object {
+              "name": "pokemon5",
+              "sprites": Object {
+                "front_default": "sprite5",
+              },
+            },
+            Object {
+              "name": "pokemon6",
+              "sprites": Object {
+                "front_default": "sprite6",
+              },
+            },
+          ],
+        },
+      ]
+    }
+  >
+    <div
+      className="saved-teams"
+      data-test="saved-teams-list"
+    >
+      <ul
+        className="saved-teams__list"
+      >
+        <Connect(SavedTeamsCell)
+          key="team1"
+          team={
+            Object {
+              "description": "This is pokeTeam1",
+              "id": "team1",
+              "name": "pokeTeam1",
+              "pokemon": Array [
+                Object {
+                  "name": "pokemon1",
+                  "sprites": Object {
+                    "front_default": "sprite1",
+                  },
+                },
+                Object {
+                  "name": "pokemon2",
+                  "sprites": Object {
+                    "front_default": "sprite2",
+                  },
+                },
+                Object {
+                  "name": "pokemon3",
+                  "sprites": Object {
+                    "front_default": "sprite3",
+                  },
+                },
+                Object {
+                  "name": "pokemon4",
+                  "sprites": Object {
+                    "front_default": "sprite4",
+                  },
+                },
+                Object {
+                  "name": "pokemon5",
+                  "sprites": Object {
+                    "front_default": "sprite5",
+                  },
+                },
+                Object {
+                  "name": "pokemon6",
+                  "sprites": Object {
+                    "front_default": "sprite6",
+                  },
+                },
+              ],
+            }
+          }
+        >
+          <SavedTeamsCell
+            deletePokeTeam={[Function]}
+            team={
+              Object {
+                "description": "This is pokeTeam1",
+                "id": "team1",
+                "name": "pokeTeam1",
+                "pokemon": Array [
+                  Object {
+                    "name": "pokemon1",
+                    "sprites": Object {
+                      "front_default": "sprite1",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon2",
+                    "sprites": Object {
+                      "front_default": "sprite2",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon3",
+                    "sprites": Object {
+                      "front_default": "sprite3",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon4",
+                    "sprites": Object {
+                      "front_default": "sprite4",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon5",
+                    "sprites": Object {
+                      "front_default": "sprite5",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon6",
+                    "sprites": Object {
+                      "front_default": "sprite6",
+                    },
+                  },
+                ],
+              }
+            }
+          >
+            <li
+              className="team-cell"
+              data-test="saved-teams-cell"
+            >
+              <ul
+                className="team-cell__img-list"
+              >
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon1"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite1"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon2"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite2"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon3"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite3"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon4"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite4"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon5"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite5"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon6"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite6"
+                  />
+                </li>
+              </ul>
+              <h2
+                className="team-cell__heading"
+                data-test="team-cell-name"
+              >
+                pokeTeam1
+              </h2>
+              <p
+                className="team-cell__createdAt"
+                data-test="team-cell-date"
+              >
+                Created: 
+                Dec 31st 1969
+              </p>
+              <p
+                className="team-cell__description"
+                data-test="team-cell-description"
+              >
+                This is pokeTeam1
+              </p>
+              <div
+                className="team-cell__buttons"
+              >
+                <Link
+                  className="btn team-cell__button"
+                  data-test="team-cell-link"
+                  replace={false}
+                  to="/edit/team1"
+                >
+                  <a
+                    className="btn team-cell__button"
+                    data-test="team-cell-link"
+                    href="/edit/team1"
+                    onClick={[Function]}
+                  >
+                    Edit
+                  </a>
+                </Link>
+                <button
+                  className="btn team-cell__button"
+                  data-test="team-cell-delete"
+                  onClick={[Function]}
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          </SavedTeamsCell>
+        </Connect(SavedTeamsCell)>
+        <Connect(SavedTeamsCell)
+          key="team2"
+          team={
+            Object {
+              "description": "This is pokeTeam2",
+              "id": "team2",
+              "name": "pokeTeam2",
+              "pokemon": Array [
+                Object {
+                  "name": "pokemon1",
+                  "sprites": Object {
+                    "front_default": "sprite1",
+                  },
+                },
+                Object {
+                  "name": "pokemon2",
+                  "sprites": Object {
+                    "front_default": "sprite2",
+                  },
+                },
+                Object {
+                  "name": "pokemon3",
+                  "sprites": Object {
+                    "front_default": "sprite3",
+                  },
+                },
+                Object {
+                  "name": "pokemon4",
+                  "sprites": Object {
+                    "front_default": "sprite4",
+                  },
+                },
+                Object {
+                  "name": "pokemon5",
+                  "sprites": Object {
+                    "front_default": "sprite5",
+                  },
+                },
+                Object {
+                  "name": "pokemon6",
+                  "sprites": Object {
+                    "front_default": "sprite6",
+                  },
+                },
+              ],
+            }
+          }
+        >
+          <SavedTeamsCell
+            deletePokeTeam={[Function]}
+            team={
+              Object {
+                "description": "This is pokeTeam2",
+                "id": "team2",
+                "name": "pokeTeam2",
+                "pokemon": Array [
+                  Object {
+                    "name": "pokemon1",
+                    "sprites": Object {
+                      "front_default": "sprite1",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon2",
+                    "sprites": Object {
+                      "front_default": "sprite2",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon3",
+                    "sprites": Object {
+                      "front_default": "sprite3",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon4",
+                    "sprites": Object {
+                      "front_default": "sprite4",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon5",
+                    "sprites": Object {
+                      "front_default": "sprite5",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon6",
+                    "sprites": Object {
+                      "front_default": "sprite6",
+                    },
+                  },
+                ],
+              }
+            }
+          >
+            <li
+              className="team-cell"
+              data-test="saved-teams-cell"
+            >
+              <ul
+                className="team-cell__img-list"
+              >
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon1"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite1"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon2"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite2"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon3"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite3"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon4"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite4"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon5"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite5"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon6"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite6"
+                  />
+                </li>
+              </ul>
+              <h2
+                className="team-cell__heading"
+                data-test="team-cell-name"
+              >
+                pokeTeam2
+              </h2>
+              <p
+                className="team-cell__createdAt"
+                data-test="team-cell-date"
+              >
+                Created: 
+                Dec 31st 1969
+              </p>
+              <p
+                className="team-cell__description"
+                data-test="team-cell-description"
+              >
+                This is pokeTeam2
+              </p>
+              <div
+                className="team-cell__buttons"
+              >
+                <Link
+                  className="btn team-cell__button"
+                  data-test="team-cell-link"
+                  replace={false}
+                  to="/edit/team2"
+                >
+                  <a
+                    className="btn team-cell__button"
+                    data-test="team-cell-link"
+                    href="/edit/team2"
+                    onClick={[Function]}
+                  >
+                    Edit
+                  </a>
+                </Link>
+                <button
+                  className="btn team-cell__button"
+                  data-test="team-cell-delete"
+                  onClick={[Function]}
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          </SavedTeamsCell>
+        </Connect(SavedTeamsCell)>
+        <Connect(SavedTeamsCell)
+          key="team3"
+          team={
+            Object {
+              "description": "This is pokeTeam3",
+              "id": "team3",
+              "name": "pokeTeam3",
+              "pokemon": Array [
+                Object {
+                  "name": "pokemon1",
+                  "sprites": Object {
+                    "front_default": "sprite1",
+                  },
+                },
+                Object {
+                  "name": "pokemon2",
+                  "sprites": Object {
+                    "front_default": "sprite2",
+                  },
+                },
+                Object {
+                  "name": "pokemon3",
+                  "sprites": Object {
+                    "front_default": "sprite3",
+                  },
+                },
+                Object {
+                  "name": "pokemon4",
+                  "sprites": Object {
+                    "front_default": "sprite4",
+                  },
+                },
+                Object {
+                  "name": "pokemon5",
+                  "sprites": Object {
+                    "front_default": "sprite5",
+                  },
+                },
+                Object {
+                  "name": "pokemon6",
+                  "sprites": Object {
+                    "front_default": "sprite6",
+                  },
+                },
+              ],
+            }
+          }
+        >
+          <SavedTeamsCell
+            deletePokeTeam={[Function]}
+            team={
+              Object {
+                "description": "This is pokeTeam3",
+                "id": "team3",
+                "name": "pokeTeam3",
+                "pokemon": Array [
+                  Object {
+                    "name": "pokemon1",
+                    "sprites": Object {
+                      "front_default": "sprite1",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon2",
+                    "sprites": Object {
+                      "front_default": "sprite2",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon3",
+                    "sprites": Object {
+                      "front_default": "sprite3",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon4",
+                    "sprites": Object {
+                      "front_default": "sprite4",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon5",
+                    "sprites": Object {
+                      "front_default": "sprite5",
+                    },
+                  },
+                  Object {
+                    "name": "pokemon6",
+                    "sprites": Object {
+                      "front_default": "sprite6",
+                    },
+                  },
+                ],
+              }
+            }
+          >
+            <li
+              className="team-cell"
+              data-test="saved-teams-cell"
+            >
+              <ul
+                className="team-cell__img-list"
+              >
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon1"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite1"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon2"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite2"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon3"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite3"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon4"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite4"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon5"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite5"
+                  />
+                </li>
+                <li
+                  className="team-cell__img-item"
+                >
+                  <img
+                    alt="pokemon6"
+                    className="team-cell__img"
+                    data-test="saved-team-cell-img"
+                    src="sprite6"
+                  />
+                </li>
+              </ul>
+              <h2
+                className="team-cell__heading"
+                data-test="team-cell-name"
+              >
+                pokeTeam3
+              </h2>
+              <p
+                className="team-cell__createdAt"
+                data-test="team-cell-date"
+              >
+                Created: 
+                Dec 31st 1969
+              </p>
+              <p
+                className="team-cell__description"
+                data-test="team-cell-description"
+              >
+                This is pokeTeam3
+              </p>
+              <div
+                className="team-cell__buttons"
+              >
+                <Link
+                  className="btn team-cell__button"
+                  data-test="team-cell-link"
+                  replace={false}
+                  to="/edit/team3"
+                >
+                  <a
+                    className="btn team-cell__button"
+                    data-test="team-cell-link"
+                    href="/edit/team3"
+                    onClick={[Function]}
+                  >
+                    Edit
+                  </a>
+                </Link>
+                <button
+                  className="btn team-cell__button"
+                  data-test="team-cell-delete"
+                  onClick={[Function]}
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          </SavedTeamsCell>
+        </Connect(SavedTeamsCell)>
+      </ul>
+    </div>
+  </SavedTeamsList>
+</section>
+`;

@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The SavePokeTeamModal Component when team is being edited Should render a snapshot of the component 1`] = `
+<SavePokeTeamModal
+  handleSaveTeam={[MockFunction]}
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  pokeTeam={
+    Object {
+      "description": "This is pokeTeam1",
+      "id": "team1",
+      "name": "pokeTeam1",
+      "pokemon": Array [
+        Object {
+          "name": "pokemon1",
+          "sprites": Object {
+            "front_default": "sprite1",
+          },
+        },
+        Object {
+          "name": "pokemon2",
+          "sprites": Object {
+            "front_default": "sprite2",
+          },
+        },
+        Object {
+          "name": "pokemon3",
+          "sprites": Object {
+            "front_default": "sprite3",
+          },
+        },
+        Object {
+          "name": "pokemon4",
+          "sprites": Object {
+            "front_default": "sprite4",
+          },
+        },
+        Object {
+          "name": "pokemon5",
+          "sprites": Object {
+            "front_default": "sprite5",
+          },
+        },
+        Object {
+          "name": "pokemon6",
+          "sprites": Object {
+            "front_default": "sprite6",
+          },
+        },
+      ],
+    }
+  }
+  toggleModal={[MockFunction]}
+  type="edit"
+>
+  <div
+    className="modal__background"
+    data-test="save-form-component"
+    onClick={[Function]}
+  >
+    <div
+      className="save-form modal__body"
+      data-test="save-form-modal-body"
+      onClick={[Function]}
+    >
+      <form
+        action=""
+        className="save-form__form"
+        data-test="save-form-form"
+        onSubmit={[Function]}
+      >
+        <h2
+          className="save-form__message"
+          data-test="save-form-message"
+        >
+          Enter a name and description for your team.
+        </h2>
+        <label
+          className="visuallyhidden"
+          htmlFor="team-name"
+        >
+          Enter Team Name
+        </label>
+        <input
+          className="save-form__name save-form__input"
+          data-test="save-form-input"
+          id="team-name"
+          onChange={[Function]}
+          placeholder="Team Name"
+          type="text"
+          value="pokeTeam1"
+        />
+        <label
+          className="visuallyhidden"
+          htmlFor="team-description"
+        >
+          Enter Team Description
+        </label>
+        <textarea
+          className="save-form__description save-form__input"
+          cols="20"
+          data-test="save-form-textarea"
+          id="team-description"
+          name=""
+          onChange={[Function]}
+          placeholder="Team Description"
+          rows="10"
+          value="This is pokeTeam1"
+        />
+        <div
+          className="save-form__buttons"
+        >
+          <button
+            className="save-form__save save-form__button btn"
+            data-test="save-form-submit"
+            type="submit"
+          >
+            Edit Team
+          </button>
+          <button
+            className="save-form__back save-form__button btn"
+            data-test="save-form-back"
+            onClick={[Function]}
+            type="button"
+          >
+            Back
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</SavePokeTeamModal>
+`;
+
+exports[`The SavePokeTeamModal component creating new team (No PokeTeam Props) Should take a snapshot of the SavePokeTeam Modal 1`] = `
+<SavePokeTeamModal
+  handleSaveTeam={[MockFunction]}
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  toggleModal={[MockFunction]}
+  type="create"
+>
+  <div
+    className="modal__background"
+    data-test="save-form-component"
+    onClick={[Function]}
+  >
+    <div
+      className="save-form modal__body"
+      data-test="save-form-modal-body"
+      onClick={[Function]}
+    >
+      <form
+        action=""
+        className="save-form__form"
+        data-test="save-form-form"
+        onSubmit={[Function]}
+      >
+        <h2
+          className="save-form__message"
+          data-test="save-form-message"
+        >
+          Enter a name and description for your team.
+        </h2>
+        <label
+          className="visuallyhidden"
+          htmlFor="team-name"
+        >
+          Enter Team Name
+        </label>
+        <input
+          className="save-form__name save-form__input"
+          data-test="save-form-input"
+          id="team-name"
+          onChange={[Function]}
+          placeholder="Team Name"
+          type="text"
+          value=""
+        />
+        <label
+          className="visuallyhidden"
+          htmlFor="team-description"
+        >
+          Enter Team Description
+        </label>
+        <textarea
+          className="save-form__description save-form__input"
+          cols="20"
+          data-test="save-form-textarea"
+          id="team-description"
+          name=""
+          onChange={[Function]}
+          placeholder="Team Description"
+          rows="10"
+          value=""
+        />
+        <div
+          className="save-form__buttons"
+        >
+          <button
+            className="save-form__save save-form__button btn"
+            data-test="save-form-submit"
+            type="submit"
+          >
+            Save Team
+          </button>
+          <button
+            className="save-form__back save-form__button btn"
+            data-test="save-form-back"
+            onClick={[Function]}
+            type="button"
+          >
+            Back
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</SavePokeTeamModal>
+`;

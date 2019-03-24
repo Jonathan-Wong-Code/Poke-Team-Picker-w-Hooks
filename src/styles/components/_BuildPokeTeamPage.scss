@@ -1,0 +1,85 @@
+.build-page {
+  background: url('./../images/pokedex.png');
+}
+.build-page__heading {
+  display:inline-block;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  position:relative;
+  left:50%;
+  transform: translateX(-50%);
+  padding: .5rem 1rem;
+  margin: 2rem auto 0 auto;
+  border-radius: 20px;
+
+  color:$color-black;
+  background: linear-gradient(to right, $color-grey-light, $color-white, $color-grey-light);
+}
+
+.build-page__poke-team {
+  padding-bottom: 3rem;
+}
+
+.build-page__poke-search {
+  padding: 3rem;
+  border-top: 5px solid $color-black;
+}
+
+.poke-search__wrapper {
+  border-radius: 50px;
+  padding: 3rem;
+  border: 4px solid $color-black;
+  background: linear-gradient(to right, $color-grey-light, $color-white, $color-grey-light);
+}
+
+@media (max-width: 1100px) {
+  .build-page__poke-search {
+    padding: 2rem 1rem;
+  }
+
+  .poke-search__wrapper {
+    padding: 2rem;  
+  }
+}
+
+@media(max-width: 750px) {
+  .build-page__poke-search {
+    padding: 0;
+  }
+
+  .poke-search__wrapper {
+    border-radius: 0;
+    border: none;  
+  }
+
+  .build-page__heading {
+    font-size: 1.8rem;
+  }
+}
+
+@media(max-width: 550px) {
+  .build-page__heading {
+    font-size: 1.5rem;
+  }
+
+  .build-page__poke-team {
+    padding-bottom:1rem;
+  }
+
+  .poke-search__wrapper {
+    padding: 2rem 1rem;  
+  }
+}
+
+@media(max-width: 450px) {
+
+  .build-page__heading {
+    margin:2rem 1rem 0 0;
+    font-size:1.2rem;
+  }
+
+  .poke-search__wrapper {
+    padding: 2rem .5rem;  
+  }
+}

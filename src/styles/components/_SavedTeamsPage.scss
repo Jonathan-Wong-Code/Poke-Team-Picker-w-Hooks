@@ -1,0 +1,99 @@
+.saved-teams-section {
+  padding-top: 3rem;
+  background: url('./../images/pokedex.png');
+}
+
+.saved-teams-section__heading {
+  width: 30%;
+
+  font-size: 2.4rem;
+  text-align: center;
+
+  padding: 1rem 0;
+  margin: 0 auto;
+  border-radius: 20px;
+
+  background: linear-gradient($color-grey-light, $color-white, $color-grey-light);
+}
+
+.saved-teams__error {
+  width: 20%;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+
+  margin: 2rem auto;
+  padding: 1rem 0;
+  border-radius: 20px;
+
+  background-image: linear-gradient(to right, $color-ice, $color-white, $color-ice);
+}
+
+@media(max-width: 1700px) {
+  .saved-teams-section__heading {
+    width: 40%;
+  }
+}
+
+@media(max-width: 1400px) {
+  .saved-teams-section__heading {
+    width: 50%;
+  }
+
+  .saved-teams__error {
+    width: 40%;
+  }
+}
+
+@media(max-width: 900px) {
+  .saved-teams-section__heading {
+    width: 75%;
+    font-size: 1.8rem;
+  }
+}
+
+@media(max-width: 750px) {
+  .saved-teams-section__heading {
+    width: 80%;
+  }
+
+  .saved-teams__error {
+    width: 60%;
+    font-size: 1.3rem;
+  }
+}
+
+@media(max-width: 600px) {
+  .saved-teams-section__heading {
+    width: 85%;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media(max-width: 500px) {
+  .saved-teams__error {
+    width: 75%;
+    padding: .3rem 0;
+    margin: 1rem auto 0 auto;
+  }
+}
+
+@media(max-width: 400px) {
+  .saved-teams-section {
+    padding: 1rem 0 0 0;
+  }
+
+  .saved-teams-section__heading {
+    width: 90%;
+  }
+
+  .saved-teams__error {
+    font-size: .9rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    transform: translateY(-70%);
+   }
+}
+

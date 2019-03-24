@@ -1,0 +1,26 @@
+.poke-card__img-box {
+  transform: scale(1.2);
+}
+
+.poke-card__item {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid $color-black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, $color-ice, $color-white, $color-ice);
+  transition: transform .2s;
+  cursor: pointer;
+}
+
+.poke-card__item:hover, .poke-card__item:focus {
+  border: 3px solid $color-black;
+  transform: scale(1.1);
+}
+
+.poke-card__name {
+  margin-bottom: 0; 
+}
+
+.poke-card__name::first-letter {
+  text-transform: uppercase;
+}

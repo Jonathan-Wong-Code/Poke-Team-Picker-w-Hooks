@@ -1,0 +1,24 @@
+.poke-list__grid {
+  font-family:$font-tertiary;
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 2px;
+
+  display : grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  grid-gap: 2rem;
+  justify-items: center;
+}
+
+@media (max-width:500px) {
+  .poke-list__grid {
+    grid-gap: .5rem;
+    grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  }
+}
+
+.poke-list__no-results {
+  width:100%;
+  grid-column:1/-1;
+  text-align: center;
+}

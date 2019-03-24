@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The unconnected ConfirmSave component Should render a snapshot of the component 1`] = `
+<ConfirmSave
+  handleToggleSaveModal={[MockFunction]}
+  pokemon={
+    Object {
+      "abilities": Array [
+        Object {
+          "ability": Object {
+            "name": "ability1",
+          },
+        },
+        Object {
+          "ability": Object {
+            "name": "ability2",
+          },
+        },
+      ],
+      "name": "poketest",
+      "sprites": Object {
+        "front_default": "sprite",
+      },
+      "stats": Array [
+        Object {
+          "base_stat": 1,
+          "stat": Object {
+            "name": "stat1",
+          },
+        },
+        Object {
+          "base_stat": 2,
+          "stat": Object {
+            "name": "stat2",
+          },
+        },
+        Object {
+          "base_stat": 3,
+          "stat": Object {
+            "name": "stat3",
+          },
+        },
+        Object {
+          "base_stat": 4,
+          "stat": Object {
+            "name": "stat4",
+          },
+        },
+        Object {
+          "base_stat": 5,
+          "stat": Object {
+            "name": "stat5",
+          },
+        },
+        Object {
+          "base_stat": 6,
+          "stat": Object {
+            "name": "stat6",
+          },
+        },
+      ],
+      "types": Array [
+        Object {
+          "type": Object {
+            "name": "type",
+          },
+        },
+      ],
+      "uniqueId": "pokeId",
+      "url": "testabc123",
+    }
+  }
+>
+  <div
+    className="modal__background"
+    data-test="confirm-save-component"
+    onClick={[MockFunction]}
+  >
+    <div
+      className="confirm-save__modal"
+      data-test="confirm-save-body"
+      onClick={[Function]}
+    >
+      <p
+        data-test="confirm-save-text"
+      >
+        Saved 
+        <span
+          className="confirm-save__name"
+        >
+          poketest
+        </span>
+      </p>
+      <button
+        className="btn confirm-save__btn"
+        data-test="confirm-save-close-btn"
+        onClick={[MockFunction]}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</ConfirmSave>
+`;

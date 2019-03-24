@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The SavePokeTeamBtn component with type of create and full team Should render a snapshot of the component 1`] = `
+<div
+  className="save-team"
+  data-test="save-team-btn-component"
+>
+  <button
+    className="save-team__btn btn"
+    data-test="save-team-submit"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Save Team
+  </button>
+  <p
+    className="save-team__text"
+  >
+     Search and pick 6 Pokemon to save.
+    <span
+      data-test="save-team-current-num"
+    >
+      Currently 
+      6
+      /6.
+    </span>
+  </p>
+</div>
+`;

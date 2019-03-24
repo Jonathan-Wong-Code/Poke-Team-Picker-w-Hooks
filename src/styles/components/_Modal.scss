@@ -1,0 +1,301 @@
+.modal__background {
+	width: 100%;
+  height: 100vh;
+  
+  background-color:rgba($color-black, .5);
+  
+	position: fixed;
+	left: 0;
+  top: 0;	
+  z-index: 1000;
+  display: flex;
+}
+
+.modal__body {
+  width: 35%;
+  line-height:1.4;
+	padding: 2rem 3rem 1.5rem 3rem;
+  margin: auto;
+  border: 5px solid $color-black;
+  border-radius: 20px;
+  font-size:1.15rem;
+  background-image: linear-gradient(to right, $color-ice, $color-white, $color-ice);
+}
+
+.modal__img-box {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.modal__img {
+   width: 100%;
+   height: auto;
+   object-fit: cover; 
+   display: block;
+   transform: scale(1.6);
+ }
+
+.modal__name {
+  margin: 1rem;
+  text-align: center;
+  font-size:1.6rem;
+}
+
+.modal__attributes {
+  width: 100%;
+}
+
+.modal__name::first-letter {
+  text-transform: uppercase;
+}
+
+.modal__types {
+  display: flex;
+  align-items: center;
+  margin-bottom:.4rem;
+}
+
+.modal__stats { 
+  margin: 1.5rem 0 1rem 0;
+}
+
+.modal__stats-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap:.2rem;
+}
+
+.modal__abilities {  
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+.modal__abilities-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1.5rem;
+}
+
+.modal__ability{
+  width: 100%;
+}
+
+.modal__stat-name {
+  font-weight: 600;
+  margin-right: .2rem;
+}
+
+ .modal__buttons {
+  width: 80%;
+  margin: 1rem auto 0 auto;
+  display: flex;
+  justify-content: center;
+  font-size:1rem;
+ }
+
+ .modal__btn {
+   width: 45%;
+   height:2.5rem;
+ }
+
+ .modal__btn:not(:last-child) {
+   margin-right: 3%;
+ }
+
+ @media(max-width:1700px) {
+   .modal__body {
+     width: 45%;
+   }
+ }
+
+ @media(max-width: 1400px) {
+  .modal__body {
+    width: 55%;
+  }
+}
+
+@media(max-width: 1100px) {
+  .modal__body {
+    width: 65%;
+  }
+}
+
+@media(max-width: 900px) {
+  .modal__body {
+    width: 75%;
+  }
+}
+
+@media(max-width: 750px) {
+  .modal__body {
+    width: 95%;
+  }
+
+  .modal__btn {
+    padding: .5rem 0;
+  }
+
+  .modal__stats-list {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__attributes {
+    display:grid;
+    justify-content: center;
+  }
+}
+
+@media(max-width: 550px) {
+  .modal__body {
+    width: 100vw;
+    height: 100vh;
+    font-size: 1rem;
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0;
+    border: none;
+  }
+
+  .modal__abilities {  
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .modal__abilities-list {
+    grid-column-gap: .5rem;
+  }
+
+  .modal__ability {
+    margin-top: .5rem;
+  }
+
+  .modal__btn {
+    padding: .5rem 0;
+    width:45%;
+  }
+
+  .modal__img-box {
+    width: 30%;
+    margin: 0 auto;
+  }
+
+  .modal__buttons {
+    font-size: .9rem;
+    width: 80%;
+    margin-top: 1.5rem;
+   }
+
+   .modal__error {
+     text-align: center;
+     font-size: .9rem;
+     margin: .5rem 0 0 0;
+   }
+}
+
+
+@media(max-width: 400px) {
+  .modal__buttons {
+    width: 100%;
+   }
+
+   .modal__btn {
+    width: 50%;
+    padding: .5rem;
+  }
+
+  .modal__img {
+    transform: scale(1.7);
+  }
+
+  .modal__name {
+    margin: 1rem 0 .5rem 0;
+    font-size:1.3rem;
+  }
+
+  .modal__stats {
+    margin:.7rem 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .modal__body {
+    padding: .3rem;
+    font-size: .9rem;
+  }
+  
+   .modal__img-box {
+    width: 20%;
+  }
+  .modal__img {
+    transform: scale(2);
+  }
+  
+  .modal__types {
+    margin:0;
+  }
+
+  .modal__abilities {
+    margin: 0;
+  }
+
+  .modal__ability {
+    margin-top: .3rem;
+  }
+
+  .modal__buttons {
+    width: 90%;
+    font-size: .8rem;
+    margin-top: .5rem;
+    padding: .3rem .1rem;
+   }
+}
+
+@media screen and (max-height: 700px) and (min-width: 900px) {
+  .modal__body {
+    padding:1.5rem;
+    line-height: 1.3;
+    font-size:1rem;
+  }
+  
+  .modal__img-box {
+    width: 20%;
+  }
+  
+  .modal__img {
+     transform: scale(1.4);
+   }
+
+   
+   .modal__name {
+    margin: .8rem;
+    font-size:1.3rem;
+  }
+
+  .modal__stats {
+    margin:.7rem 0;
+  }
+
+  .modal__abilities-list {
+    grid-row-gap:.3rem;
+    margin-top:.2rem;
+  }
+
+  .modal__buttons {
+    font-size:.9rem;
+    margin-top:1rem;
+    
+  }
+
+  .modal__btn {
+    width: 40%;
+    padding: .5rem 0;
+  }
+}

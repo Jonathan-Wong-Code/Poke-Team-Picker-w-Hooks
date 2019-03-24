@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the unconnected modal component with no error Should render a snapshot of the component 1`] = `
+<Modal
+  error={null}
+  handleAddPokemon={[MockFunction]}
+  handleTogglePokeModal={[MockFunction]}
+  pokemon={
+    Object {
+      "abilities": Array [
+        Object {
+          "ability": Object {
+            "name": "ability1",
+          },
+        },
+        Object {
+          "ability": Object {
+            "name": "ability2",
+          },
+        },
+      ],
+      "name": "poketest",
+      "sprites": Object {
+        "front_default": "sprite",
+      },
+      "stats": Array [
+        Object {
+          "base_stat": 1,
+          "stat": Object {
+            "name": "stat1",
+          },
+        },
+        Object {
+          "base_stat": 2,
+          "stat": Object {
+            "name": "stat2",
+          },
+        },
+        Object {
+          "base_stat": 3,
+          "stat": Object {
+            "name": "stat3",
+          },
+        },
+        Object {
+          "base_stat": 4,
+          "stat": Object {
+            "name": "stat4",
+          },
+        },
+        Object {
+          "base_stat": 5,
+          "stat": Object {
+            "name": "stat5",
+          },
+        },
+        Object {
+          "base_stat": 6,
+          "stat": Object {
+            "name": "stat6",
+          },
+        },
+      ],
+      "types": Array [
+        Object {
+          "type": Object {
+            "name": "type",
+          },
+        },
+      ],
+      "uniqueId": "pokeId",
+      "url": "testabc123",
+    }
+  }
+>
+  <div
+    className="modal__background"
+    data-test="modal-component"
+    onClick={[MockFunction]}
+  >
+    <div
+      className="modal__body"
+      data-test="modal-body"
+      onClick={[Function]}
+    >
+      <div
+        className="modal__img-box"
+      >
+        <img
+          alt="poketest"
+          className="modal__img"
+          data-test="modal-img"
+          src="sprite"
+        />
+      </div>
+      <h2
+        className="modal__name"
+        data-test="modal-name"
+      >
+        poketest
+      </h2>
+      <ul
+        className="modal__attributes"
+      >
+        <li
+          className="modal__types"
+          data-test="modal-type"
+        >
+          <span
+            className="modal__stat-name"
+          >
+            type: 
+          </span>
+          <PokemonTypes
+            key="type"
+            type={
+              Object {
+                "type": Object {
+                  "name": "type",
+                },
+              }
+            }
+          >
+            <span
+              className="pokemon-type pokemon-type--type"
+              key="type"
+            >
+              type
+            </span>
+          </PokemonTypes>
+        </li>
+        <li
+          className="modal__stats"
+        >
+          <ul
+            className="modal__stats-list"
+          >
+            <li
+              data-test="modal-stat"
+              key="stat1"
+            >
+              <span
+                className="modal__stat-name"
+              >
+                stat1
+                :
+              </span>
+               
+              1
+            </li>
+            <li
+              data-test="modal-stat"
+              key="stat2"
+            >
+              <span
+                className="modal__stat-name"
+              >
+                stat2
+                :
+              </span>
+               
+              2
+            </li>
+            <li
+              data-test="modal-stat"
+              key="stat3"
+            >
+              <span
+                className="modal__stat-name"
+              >
+                stat3
+                :
+              </span>
+               
+              3
+            </li>
+            <li
+              data-test="modal-stat"
+              key="stat4"
+            >
+              <span
+                className="modal__stat-name"
+              >
+                stat4
+                :
+              </span>
+               
+              4
+            </li>
+            <li
+              data-test="modal-stat"
+              key="stat5"
+            >
+              <span
+                className="modal__stat-name"
+              >
+                stat5
+                :
+              </span>
+               
+              5
+            </li>
+            <li
+              data-test="modal-stat"
+              key="stat6"
+            >
+              <span
+                className="modal__stat-name"
+              >
+                stat6
+                :
+              </span>
+               
+              6
+            </li>
+          </ul>
+        </li>
+        <li
+          className="modal__abilities"
+        >
+          <span
+            className="modal__stat-name modal__ability-tag"
+          >
+            abilities: 
+          </span>
+          <ul
+            className="modal__abilities-list"
+          >
+            <li
+              className="modal__ability"
+              data-test="modal-ability"
+              key="ability1"
+            >
+              ability1
+            </li>
+            <li
+              className="modal__ability"
+              data-test="modal-ability"
+              key="ability2"
+            >
+              ability2
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        className="modal__buttons"
+      >
+        <button
+          className="btn modal__btn"
+          data-test="modal-save"
+          onClick={[MockFunction]}
+        >
+          Save to team
+        </button>
+        <button
+          className="btn modal__btn"
+          data-test="modal-cancel"
+          onClick={[MockFunction]}
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</Modal>
+`;
