@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PokeTeamListItem from './PokeTeamListItem';
+import PokeTeamListContext from './../context/PokeTeamList';
 
-const PokeTeamList = ({ pokeTeam, handleRemovePokemon }) => {
+const PokeTeamList = () => {
+  const { pokeTeam } = useContext(PokeTeamListContext);
+
   const renderPokeTeam = () => { 
     return pokeTeam.length > 0 ? (
       pokeTeam.map(pokemon => {
@@ -9,7 +12,6 @@ const PokeTeamList = ({ pokeTeam, handleRemovePokemon }) => {
           <PokeTeamListItem 
             key={pokemon.uniqueId} 
             pokemon={pokemon} 
-            handleRemovePokemon={handleRemovePokemon}
             data-test='poke-team-list-item'
           />
         );

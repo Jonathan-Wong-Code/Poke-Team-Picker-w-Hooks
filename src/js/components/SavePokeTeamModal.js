@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SavePokeTeamModal = ({ pokeTeam, toggleModal, type, handleSaveTeam, history  }) => {
+const SavePokeTeamModal = ({ pokeTeam, toggleModal, type, handleSaveTeam, history }) => {
   const [name, setName] = useState(pokeTeam ? pokeTeam.name : '');
   const [description, setDescription] = useState(pokeTeam ? pokeTeam.description : '');
   const [error, setError] = useState('');

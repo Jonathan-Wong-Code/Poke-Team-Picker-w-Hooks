@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PokemonTypes from './PokemonTypes';
+import PokeTeamListContext from './../context/PokeTeamList';
 
-const PokeTeamListItem = ({ pokemon, handleRemovePokemon }) => {
+const PokeTeamListItem = ({ pokemon }) => {
+
+  const { teamDispatch } = useContext(PokeTeamListContext);
+
   const onButtonClick = () => {
-    handleRemovePokemon(pokemon.uniqueId);
+    teamDispatch({
+      type : 'REMOVE_POKEMON',
+      id : pokemon.uniqueId
+    });
   };
 
   return (

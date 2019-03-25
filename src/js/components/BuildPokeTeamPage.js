@@ -9,6 +9,8 @@ import SaveTeamListBtn from './SavePokeTeamBtn'
 import SavePokeTeamModal from './SavePokeTeamModal';
 import regeneratorRuntime from 'regenerator-runtime';
 import currentPokeTeamReducer from './../reducers/currentPokeTeamReducer';
+import PokeTeamListContext from './../context/PokeTeamList';
+
 
 const BuildPokeTeamPage = (props) => {
   const [textFilter, setTextFilter] = useState('');
@@ -56,13 +58,6 @@ const BuildPokeTeamPage = (props) => {
     })
   }
 
-  const handleRemovePokemon = (id) => {
-    teamDispatch({
-      type : 'REMOVE_POKEMON',
-      id
-    })
-  }
- 
   const handlePokeSearch = async (textFilter, type) => {
     if(type !=='all') {
       try {
@@ -102,10 +97,10 @@ const BuildPokeTeamPage = (props) => {
       <section className='build-page'>
         <section className='build-page__poke-team'>
           {renderHeading()}
-          <PokeTeamList 
-            pokeTeam ={currentPokemonTeam}
-            handleRemovePokemon = {handleRemovePokemon}
-          />
+
+          <PokeTeamListContext.Provider value ={{pokeTeam : currentPokemonTeam, teamDispatch}}>
+            <PokeTeamList />      
+          </PokeTeamListContext.Provider>
 
           <SaveTeamListBtn 
             pokeTeam ={currentPokemonTeam}
