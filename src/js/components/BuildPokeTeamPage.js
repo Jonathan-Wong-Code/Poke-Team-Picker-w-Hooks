@@ -16,10 +16,10 @@ const BuildPokeTeamPage = (props) => {
   const [searchedPokemon, setSearchedPokemon] = useState([]);
   const [currentPokemonTeam, teamDispatch] 
     = useReducer(currentPokeTeamReducer, props.pokeTeam ? props.pokeTeam.pokemon : []);
-
+  
   const getInitialPokemon = async () => {
     const response = await pokeapi.get('/pokemon');
-    await setSearchedPokemon(response.data.results);
+    setSearchedPokemon(response.data.results);
   };
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const BuildPokeTeamPage = (props) => {
         const formattedPokeData = response.data.pokemon.map(pokemon => {
           return pokemon.pokemon;
         });
-        setSearchedPokemon(formattedPokeData)
+        setSearchedPokemon(formattedPokeData);
       } catch (error) {
         throw error;
       }   

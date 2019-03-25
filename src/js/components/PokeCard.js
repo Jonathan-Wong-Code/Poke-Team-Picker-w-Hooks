@@ -5,17 +5,24 @@ import regeneratorRuntime from 'regenerator-runtime';
 const PokeCard = ({ handlePokeCardClick, pokemon }) => {
   const [currentPokemon, setCurrentPokemon] = useState(null);
 
-  const getPokemon = async () => {
-    try {   
-      const response = await pokeapi.get(`/pokemon/${pokemon.name}`);
-      await setCurrentPokemon(response.data);
-    } catch (error) { 
-      throw error;
-    }
-  };
-
   useEffect(() => {
+    let mounted = true;
+    const getPokemon = async () => {
+      try {   
+        const response = await pokeapi.get(`/pokemon/${pokemon.name}`);
+        if (mounted) {
+          await setCurrentPokemon(response.data);
+        }
+      } catch (error) { 
+        throw error;
+      }
+    };
+    
     getPokemon();
+   
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const onPokeCardClick = () => {
