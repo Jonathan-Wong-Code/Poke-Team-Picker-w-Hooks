@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import uuid from 'uuid';
 import PokeCard from './PokeCard';
 import Modal from './Modal';
 import ConfirmSave from './ConfirmSave';
+import PokeListContext from './../context/PokeList';
 
-const PokeList = ({ pokemon, handleAddPokemon, textFilter, currentPokemonTeam }) => { 
+const PokeList = () => { 
   const [showPokeModal, setShowPokeModal] = useState(false);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [error, setError] = useState(null);
   const [currentPokemon, setCurrentPokemon] = useState(null);
+
+  const { pokemon, currentPokemonTeam, textFilter, teamDispatch } = useContext(PokeListContext);
 
   const handleTogglePokeModal = () => {
     setShowPokeModal(!showPokeModal);
@@ -19,7 +23,13 @@ const PokeList = ({ pokemon, handleAddPokemon, textFilter, currentPokemonTeam })
 
   const handleAddTeamPokemon = () => {
     if (currentPokemonTeam.length < 6) {
-      handleAddPokemon(currentPokemon);
+      teamDispatch({
+        type: "ADD_POKEMON",
+        pokemon : {
+          uniqueId : uuid(),
+          ...currentPokemon
+        }
+      });
       handleToggleSaveModal();
       handleTogglePokeModal();
     } else {

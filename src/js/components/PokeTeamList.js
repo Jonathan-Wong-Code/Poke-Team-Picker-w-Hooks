@@ -8,6 +8,7 @@ const PokeTeamList = () => {
   const renderPokeTeam = () => { 
     return pokeTeam.length > 0 ? (
       pokeTeam.map(pokemon => {
+        console.log(pokemon);
         return (
           <PokeTeamListItem 
             key={pokemon.uniqueId} 

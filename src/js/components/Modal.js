@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PokemonTypes from './PokemonTypes';
 
-const Modal = ({pokemon, handleAddPokemon, handleTogglePokeModal, error}) =>{
+const Modal = ({pokemon, handleAddPokemon, handleTogglePokeModal, error }) => {
   const pokeModalButton = useRef(null);
   
   useEffect(() => {
@@ -33,10 +33,14 @@ const Modal = ({pokemon, handleAddPokemon, handleTogglePokeModal, error}) =>{
   ));
 
   return (
-    <div className='modal__background' onClick={handleTogglePokeModal}
+    <div 
+      className='modal__background' 
+      onClick={handleTogglePokeModal}
       data-test='modal-component'
     >
-      <div className='modal__body' onClick={(e) => e.stopPropagation()}
+      <div 
+        className='modal__body' 
+        onClick={(e) => e.stopPropagation()}
         data-test='modal-body'
       >
         <div className='modal__img-box'>
