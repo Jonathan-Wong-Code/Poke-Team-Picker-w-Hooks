@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SavePokeTeamModal = ({ pokeTeam, toggleModal, type, handleSaveTeam, history }) => {
+const SavePokeTeamModal = ({ pokeTeam, toggleModal, handleSaveTeam, type, history }) => {
   const [name, setName] = useState(pokeTeam ? pokeTeam.name : '');
   const [description, setDescription] = useState(pokeTeam ? pokeTeam.description : '');
   const [error, setError] = useState('');
@@ -22,17 +22,16 @@ const SavePokeTeamModal = ({ pokeTeam, toggleModal, type, handleSaveTeam, histor
     if (!name) {
       setError('Must enter a team name to save.');
     } else {
-      handleSaveTeam(name,description);
+      handleSaveTeam(name, description);
       history.push('/SavedTeams');
     }
-  }
+  };
 
   const renderMessage = () => {
     return (
       error ? `${error}` : 'Enter a name and description for your team.'
     );
   };
-
 
   return (
     <div className='modal__background' 

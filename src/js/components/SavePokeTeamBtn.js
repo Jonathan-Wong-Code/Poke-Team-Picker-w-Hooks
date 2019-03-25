@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SavePokeTeamBtn = ({ toggleModal, type, pokeTeam }) => {
+const SavePokeTeamBtn = ({ toggleModal, pokeTeam, type }) => {
   const onButtonClick = () => {
     toggleModal();
   };

@@ -10,11 +10,11 @@ export const EditTeamPage = ({ editPokeTeam, editedTeam, history }) => {
 
   return (
     <BuildPokeTeamPage 
-      type='edit' 
-      handleEditTeam={handleEditTeam} 
       pokeTeam={editedTeam}
+      type='edit' 
       history={history}
-      data-test='build-page-component'
+      handleEditTeam={handleEditTeam}
+      data-test='build-page-component' 
     />
   );
 };

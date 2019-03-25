@@ -10,10 +10,10 @@ export const CreateTeamPage = ({ history, addPokeTeam }) => {
  
   return (
     <BuildPokeTeamPage 
-      type='create' 
+      type='create'
       handleAddTeam={handleAddTeam}
       history={history}
-      data-test='build-team-component'
+      data-test='build-team-component' 
     />
   );
 };

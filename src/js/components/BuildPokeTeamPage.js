@@ -1,12 +1,11 @@
-import React, {useState, useEffect, useReducer, useContext} from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 import moment from 'moment';
 import pokeapi from '../apis/pokeapi';
 import PokeList from './PokeList';
 import SearchBar from './SearchBar';
 import PokeTeamList from './PokeTeamList';
-import SaveTeamListBtn from './SavePokeTeamBtn'
+import SaveTeamListBtn from './SavePokeTeamBtn';
 import SavePokeTeamModal from './SavePokeTeamModal';
-import regeneratorRuntime from 'regenerator-runtime';
 import currentPokeTeamReducer from './../reducers/currentPokeTeamReducer';
 import PokeTeamListContext from './../context/PokeTeamList';
 import PokeListContext from './../context/PokeList';
@@ -15,12 +14,13 @@ const BuildPokeTeamPage = (props) => {
   const [textFilter, setTextFilter] = useState('');
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [searchedPokemon, setSearchedPokemon] = useState([]);
-  const [currentPokemonTeam, teamDispatch] = useReducer(currentPokeTeamReducer, props.pokeTeam ? props.pokeTeam.pokemon : []);
+  const [currentPokemonTeam, teamDispatch] 
+    = useReducer(currentPokeTeamReducer, props.pokeTeam ? props.pokeTeam.pokemon : []);
 
   const getInitialPokemon = async () => {
     const response = await pokeapi.get('/pokemon');
     await setSearchedPokemon(response.data.results);
-  }
+  };
 
   useEffect(() => {
     getInitialPokemon();
@@ -67,21 +67,22 @@ const BuildPokeTeamPage = (props) => {
     }
     
     setTextFilter(textFilter);
-  }
+  };
   
   const renderHeading = () => (
-    props.pokeTeam ? 
-    <h2 className='build-page__heading'>
-      Editing Team
-    </h2> 
-    : null
-  )
+    props.pokeTeam ? (
+      <h2 className='build-page__heading'>
+        Editing Team
+      </h2>
+    ) : null
+  );
 
   if (searchedPokemon.length === 0) {
     return (
       <div>Loading</div>
     );
   } 
+
   return (
     <section className='build-page'>
       <section className='build-page__poke-team'>
@@ -98,21 +99,20 @@ const BuildPokeTeamPage = (props) => {
         />  
       </section>
       {
-        showSaveModal && 
+        
+        showSaveModal && (
           <SavePokeTeamModal 
             toggleModal={toggleModal}
             handleSaveTeam={handleSaveTeam}
-            history={props.history}
-            pokeTeam = {props.pokeTeam ? props.pokeTeam : null}
+            pokeTeam={props.pokeTeam ? props.pokeTeam : null}
             type={props.type}
+            history={props.history}
           />
+        )
       }
       <section className='build-page__poke-search'>
         <div className='wrapper poke-search__wrapper'>
-          <SearchBar 
-            handlePokeSearch = {handlePokeSearch}
-          />
-
+          <SearchBar handlePokeSearch={handlePokeSearch} />
           <PokeListContext.Provider value={
               { pokemon : searchedPokemon, textFilter, teamDispatch, currentPokemonTeam }
             }
@@ -123,6 +123,6 @@ const BuildPokeTeamPage = (props) => {
       </section>
     </section>
   );
-}
+};
 
 export default BuildPokeTeamPage;
