@@ -1,29 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import pokeapi from './../apis/pokeapi';
 import regeneratorRuntime from 'regenerator-runtime';
+import usePokeSearch from './../hooks/usePokeSearch';
 
 const PokeCard = ({ handlePokeCardClick, pokemon }) => {
-  const [currentPokemon, setCurrentPokemon] = useState(null);
-
-  useEffect(() => {
-    let mounted = true;
-    const getPokemon = async () => {
-      try {   
-        const response = await pokeapi.get(`/pokemon/${pokemon.name}`);
-        if (mounted) {
-          await setCurrentPokemon(response.data);
-        }
-      } catch (error) { 
-        throw error;
-      }
-    };
-    
-    getPokemon();
-   
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  const currentPokemon = usePokeSearch(`/pokemon/${pokemon.name}`);
 
   const onPokeCardClick = () => {
     handlePokeCardClick(currentPokemon);
@@ -36,7 +17,6 @@ const PokeCard = ({ handlePokeCardClick, pokemon }) => {
   };
 
   if (!currentPokemon) return <div />;
-  
   if (currentPokemon.sprites.front_default) {
     return (
       <li 
