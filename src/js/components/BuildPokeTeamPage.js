@@ -23,6 +23,8 @@ const BuildPokeTeamPage = (props) => {
   useEffect(() => {
     setSearchedPokemon(data ? data.results : []);
   }, [data]);
+
+  // PRE-HOOK CODE
   // const getInitialPokemon = async () => {
   //   const response = await pokeapi.get('/pokemon');
   //   setSearchedPokemon(response.data.results);
