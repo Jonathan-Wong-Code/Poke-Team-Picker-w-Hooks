@@ -9,22 +9,28 @@ import SavePokeTeamModal from './SavePokeTeamModal';
 import currentPokeTeamReducer from './../reducers/currentPokeTeamReducer';
 import PokeTeamListContext from './../context/PokeTeamList';
 import PokeListContext from './../context/PokeList';
+import usePokeSearch from './../hooks/usePokeSearch';
 
 const BuildPokeTeamPage = (props) => {
+  const data = usePokeSearch('/pokemon');
+
   const [textFilter, setTextFilter] = useState('');
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [searchedPokemon, setSearchedPokemon] = useState([]);
   const [currentPokemonTeam, teamDispatch] 
     = useReducer(currentPokeTeamReducer, props.pokeTeam ? props.pokeTeam.pokemon : []);
   
-  const getInitialPokemon = async () => {
-    const response = await pokeapi.get('/pokemon');
-    setSearchedPokemon(response.data.results);
-  };
-
   useEffect(() => {
-    getInitialPokemon();
-  }, []);
+    setSearchedPokemon(data ? data.results : []);
+  }, [data]);
+  // const getInitialPokemon = async () => {
+  //   const response = await pokeapi.get('/pokemon');
+  //   setSearchedPokemon(response.data.results);
+  // };
+
+  // useEffect(() => {
+  //   getInitialPokemon();
+  // }, []);
 
   const toggleModal = () => {
     setShowSaveModal(true);
@@ -77,7 +83,7 @@ const BuildPokeTeamPage = (props) => {
     ) : null
   );
 
-  if (searchedPokemon.length === 0) {
+  if (!searchedPokemon === 0) {
     return (
       <div>Loading</div>
     );

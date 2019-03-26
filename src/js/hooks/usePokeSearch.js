@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const usePokeSearch = (endpoint) => {
   const [result, setResult] = useState(null);
-
+  
   useEffect(() => {
     let mounted = true;
     const getPokemon = async () => {
@@ -22,12 +22,11 @@ const usePokeSearch = (endpoint) => {
     };
     
     getPokemon();
-  
+
     return () => {
       mounted = false;
     };
-  }, []);
-
+  }, [endpoint]);
   return result;
 };
 
